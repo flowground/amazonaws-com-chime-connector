@@ -1,0 +1,78 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "UpdateUserRequestItems": {
+                    "description": "The request containing the user IDs and details to update.",
+                    "items": {
+                        "description": "The user ID and user fields to update, used with the <a>BatchUpdateUser</a> action.",
+                        "properties": {
+                            "LicenseType": {
+                                "description": "The user license type.",
+                                "enum": [
+                                    "Basic",
+                                    "Plus",
+                                    "Pro",
+                                    "ProTrial"
+                                ],
+                                "type": "string"
+                            },
+                            "UserId": {
+                                "description": "The user ID.",
+                                "pattern": ".*\\S.*",
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "UserId"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 20,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "UpdateUserRequestItems"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
